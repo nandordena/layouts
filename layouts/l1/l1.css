@@ -1,0 +1,49 @@
+:root {
+    /* colores */
+    --color-bg: #000;
+    --color-text: #fff;
+    --color-primary: #007bff;
+    --color-secondary: #6c757d;
+    --color-success: #28a745;
+    --color-danger: #dc3545;
+    --color-warning: #ffc107;
+    --color-info: #17a2b8;
+    --color-light: #f8f9fa;
+    /* tamaños */
+    --size-scw: 1920px;
+    --size-sch: 1080px;
+    --size-pt: 20px;
+    --size-pl: 20px;
+    --size-pw: calc(100% - 40px);
+    --size-ph: calc( ( var(--size-pw) * 9 ) / 16);
+    --size-ct: calc(100% - var(--size-ch) - 20px);
+    --size-cl: calc(100% - var(--size-cw) - 20px);
+    --size-cw: calc(200px);
+    --size-ch: calc(200px);
+}
+body {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    width: var(--size-scw);
+    height: var(--size-sch);
+    outline: 100px solid red;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+}
+#pantalla {
+    outline: 1px solid blue;
+    position: absolute;
+    top: var(--size-pt);
+    left: var(--size-pl);
+    width: var(--size-pw);
+    height: var(--size-ph);
+}
+#camara {
+    outline: 1px solid green;
+    position: absolute;
+    top: var(--size-ct);
+    left: var(--size-cl);
+    width: var(--size-cw);
+    height: var(--size-ch);
+}

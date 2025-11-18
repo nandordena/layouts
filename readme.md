@@ -1,0 +1,2 @@
+#Layouts
+Crear un acceso a los layouts de obs directamente desde un index html , e cual se manejara en su mayoria por js  y tendra entornos creados en css y html con configuracion en css dinamisado por js
