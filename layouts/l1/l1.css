@@ -1,4 +1,32 @@
 :root {
+    
+    /* configurables */
+    --size-std-margin: 20px;
+    /*scene*/
+    --size-scw: 1920px;
+    --ratio-scene: 9/16;
+    /*pantalla*/
+    --size-screen-margin: 310px;
+    --ratio-screen: 9/16;
+    /*cam*/
+    --size-cw:250px;
+    --ratio-cam: 6/5;
+    --pos-cb: null;
+    --pos-cl: null;
+    --pos-ct: var(--size-std-margin);
+    --pos-cr: var(--size-std-margin);
+    /*chat*/
+    --color-chroma:#00ff00;
+    --pos-chat-b: null;
+    --pos-chat-r: null;
+    --pos-chat-t: calc( var(--size-ch) + var(--size-std-margin)*2 );
+    --pos-chat-r: var(--size-std-margin);
+    --size-chat-w: var(--size-cw);
+    --size-chat-h: calc( 100% - var(--size-ch) - var(--size-footer-h) - var(--size-std-margin) * 4 );
+    /*footer*/
+    --size-footer-w: 100%;
+    --size-footer-h: 110px;
+
     /* colores */
     --color-bg: #000;
     --color-text: #fff;
@@ -9,17 +37,16 @@
     --color-warning: #ffc107;
     --color-info: #17a2b8;
     --color-light: #f8f9fa;
+    
     /* tamaños */
-    --size-scw: 1920px;
-    --size-sch: 1080px;
-    --size-pt: 20px;
-    --size-pl: 20px;
-    --size-pw: calc(100% - 40px);
-    --size-ph: calc( ( var(--size-pw) * 9 ) / 16);
-    --size-ct: calc(100% - var(--size-ch) - 20px);
-    --size-cl: calc(100% - var(--size-cw) - 20px);
-    --size-cw: calc(200px);
-    --size-ch: calc(200px);
+    --size-sch: calc( var(--size-scw) * var(--ratio-scene));
+    /*pantalla*/
+    --pos-pt: var(--size-std-margin);
+    --pos-pl: var(--size-std-margin);
+    --size-pw: calc( var(--size-scw) - var(--size-screen-margin));
+    --size-ph: calc( ( var(--size-pw) * var(--ratio-screen) ));
+    /*cam*/
+    --size-ch: calc( ( var(--size-cw) * var(--ratio-cam) ));
 }
 body {
     position: relative;
@@ -34,16 +61,41 @@ body {
 #pantalla {
     outline: 1px solid blue;
     position: absolute;
-    top: var(--size-pt);
-    left: var(--size-pl);
+    top: var(--pos-pt, initial);
+    bottom: var(--pos-pb, initial);
+    left: var(--pos-pl, initial);
+    right: var(--pos-pr, initial);
     width: var(--size-pw);
     height: var(--size-ph);
 }
 #camara {
     outline: 1px solid green;
     position: absolute;
-    top: var(--size-ct);
-    left: var(--size-cl);
+    top: var(--pos-ct, initial);
+    bottom: var(--pos-cb, initial);
+    left: var(--pos-cl, initial);
+    right: var(--pos-cr, initial);
     width: var(--size-cw);
     height: var(--size-ch);
+}
+#chat   {
+    outline: 1px solid orange;
+    position: absolute;
+    top: var(--pos-chat-t, initial);
+    bottom: var(--pos-chat-b, initial);
+    left: var(--pos-chat-l, initial);
+    right: var(--pos-chat-r, initial);
+    width: var(--size-chat-w, 300px);
+    height: var(--size-chat-h, 400px);
+}
+#footer {
+    outline: 1px solid purple;
+    position: absolute;
+    left: var(--size-std-margin, initial);
+    right: var(--size-std-margin, initial);
+    bottom: var(--size-std-margin, initial);
+    height: var(--size-footer-h, initial);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
