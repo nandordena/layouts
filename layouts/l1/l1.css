@@ -67,6 +67,7 @@ body {
     right: var(--pos-pr, initial);
     width: var(--size-pw);
     height: var(--size-ph);
+    background-color: var(--color-chroma);
 }
 #camara {
     outline: 1px solid green;
@@ -77,6 +78,7 @@ body {
     right: var(--pos-cr, initial);
     width: var(--size-cw);
     height: var(--size-ch);
+    background-color: var(--color-chroma);
 }
 #chat   {
     outline: 1px solid orange;

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Panel de Control</title>
+    <link rel="stylesheet" href="control.css" />
+  </head>
+  <body>
+    <main class="dashboard">
+
+      <section class="workspace">
+        <section class="panel panel--controls">
+          <div class="category-row" id="category-list">
+            <button class="category is-active" data-category="layout">Layout</button>
+            <button class="category" data-category="pantalla">Pantalla</button>
+            <button class="category" data-category="camara">Cámara</button>
+            <button class="category" data-category="chat">Chat</button>
+            <button class="category" data-category="contadores">Contadores</button>
+            <button class="category" data-category="escenas">Escenas especiales</button>
+          </div>
+          <header class="panel__header panel__header--controls">
+            <div class="header-actions">
+              <button class="ghost-btn" id="link-json">
+                <span id="link-status">Vincular cnfg.json</span>
+              </button>
+              <button class="ghost-btn" id="reset-config">Restaurar base</button>
+            </div>
+          </header>
+
+          <div class="control-groups">
+            <article class="control-card" data-category-panel="layout">
+              <h3>Disposición</h3>
+              <p>Define la estructura principal del layout.</p>
+              <div class="button-grid">
+                <button class="state-pill" data-setting="layout.mode" data-value="grid">
+                  Grid
+                </button>
+                <button class="state-pill" data-setting="layout.mode" data-value="split">
+                  Split
+                </button>
+                <button class="state-pill" data-setting="layout.mode" data-value="fullscreen">
+                  Fullscreen
+                </button>
+              </div>
+            </article>
+
+            <article class="control-card" data-category-panel="pantalla">
+              <h3>Pantalla</h3>
+              <p>Controla estado, brillo y chroma.</p>
+              <div class="button-grid">
+                <button class="state-pill" data-setting="pantalla.estado" data-value="activo">
+                  Activa
+                </button>
+                <button class="state-pill" data-setting="pantalla.estado" data-value="pausa">
+                  Pausa
+                </button>
+                <button class="state-pill" data-setting="pantalla.estado" data-value="standby">
+                  Standby
+                </button>
+              </div>
+              <label class="slider">
+                Brillo
+                <input type="range" min="0" max="100" value="80" data-setting="pantalla.brillo" />
+                <span id="brightness-value">80%</span>
+              </label>
+              <label class="slider">
+                Chroma
+                <input type="range" min="0" max="100" value="50" data-setting="pantalla.chroma" />
+                <span id="chroma-value">50%</span>
+              </label>
+            </article>
+
+            <article class="control-card" data-category-panel="camara">
+              <h3>Cámara</h3>
+              <p>Controla zoom, filtros y transparencia.</p>
+              <label class="slider">
+                Zoom
+                <input type="range" min="0.5" max="3" step="0.1" value="1" data-setting="camara.zoom" />
+                <span id="camara-zoom-value">1.0x</span>
+              </label>
+              <label class="slider">
+                Brillo
+                <input type="range" min="0" max="100" value="50" data-setting="camara.brillo" />
+                <span id="camara-brillo-value">50%</span>
+              </label>
+              <label class="slider">
+                Contraste
+                <input type="range" min="0" max="100" value="50" data-setting="camara.contraste" />
+                <span id="camara-contraste-value">50%</span>
+              </label>
+              <label class="slider">
+                Transparencia
+                <input type="range" min="0" max="100" value="100" data-setting="camara.transparencia" />
+                <span id="camara-transparencia-value">100%</span>
+              </label>
+            </article>
+
+            <article class="control-card" data-category-panel="chat">
+              <h3>Chat</h3>
+              <p>Controla visibilidad, opacidad y color de fondo.</p>
+              <div class="button-grid">
+                <button class="state-pill" data-setting="chat.visible" data-value="true">
+                  ON
+                </button>
+                <button class="state-pill" data-setting="chat.visible" data-value="false">
+                  OFF
+                </button>
+              </div>
+              <label class="slider">
+                Opacidad
+                <input type="range" min="0" max="100" value="100" data-setting="chat.opacidad" />
+                <span id="chat-opacidad-value">100%</span>
+              </label>
+              <label class="slider">
+                Color fondo (Hue)
+                <input type="range" min="0" max="360" value="0" data-setting="chat.fondoHue" />
+                <span id="chat-fondoHue-value">0°</span>
+              </label>
+              <label class="slider">
+                Transparencia fondo
+                <input type="range" min="0" max="100" value="80" data-setting="chat.fondoTransparencia" />
+                <span id="chat-fondoTransparencia-value">80%</span>
+              </label>
+            </article>
+
+            <article class="control-card" data-category-panel="contadores">
+              <h3>Contadores</h3>
+              <p>Gestiona lista de contadores con nombre y valor.</p>
+              <div id="contadores-list" class="contadores-list"></div>
+              <button class="ghost-btn" id="add-contador">+ Agregar contador</button>
+            </article>
+
+            <article class="control-card" data-category-panel="escenas">
+              <h3>Escenas especiales</h3>
+              <p>Activa presets de escenas.</p>
+              <div class="button-grid">
+                <button class="state-pill" data-setting="escenas.activa" data-value="intro">
+                  Intro
+                </button>
+                <button class="state-pill" data-setting="escenas.activa" data-value="creditos">
+                  Créditos
+                </button>
+                <button class="state-pill" data-setting="escenas.activa" data-value="pausa">
+                  Pausa
+                </button>
+                <button class="state-pill" data-setting="escenas.activa" data-value="baño">
+                  Baño
+                </button>
+                <button class="state-pill" data-setting="escenas.activa" data-value="problemas">
+                  Problemas
+                </button>
+              </div>
+            </article>
+          </div>
+        </section>
+
+    <script src="control.js" type="module"></script>
+  </body>
+</html>
+

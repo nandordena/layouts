@@ -1,0 +1,31 @@
+{
+  "layout": {
+    "mode": "grid"
+  },
+  "pantalla": {
+    "estado": "activo",
+    "brillo": 80,
+    "chroma": 50
+  },
+  "camara": {
+    "zoom": 1,
+    "brillo": 50,
+    "contraste": 50,
+    "transparencia": 100
+  },
+  "chat": {
+    "visible": true,
+    "opacidad": 100,
+    "fondoHue": 0,
+    "fondoTransparencia": 80
+  },
+  "contadores": [
+    {
+      "nombre": "Contador 1",
+      "valor": 0
+    }
+  ],
+  "escenas": {
+    "activa": "intro"
+  }
+}
